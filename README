@@ -1,0 +1,21 @@
+Boston College
+A. Bayegan, P.Clote
+/***********************************************************************
+./UsageIndex program uses forward and backward partition functions obtained from RNAsampleCDS software to  calculate codon usage index for non-overlapping as well as overlapping reading frames.
+The minimum input requirement is a fasta file containg the genes of interest and the coding reading frames of the genes. 
+
+Usage: ./UsageIndex -f fastaFile -r readingFrames -c constraint -m BlosumMatrix -t threshold -gc GC_content
+
+Options:
+	-f
+	The fasta file need to be analyzed
+	-r 
+	The comma separated coding reading frames. There are 6 possible reading frames: +0,+1,+2,-0,-1,-2   e.g. -r +0,+1
+	-c
+	Define nucleotide constraints on the coding RNA sequences.
+	-m 
+	If the RNA sequences are not required to code exactly the given peptides, it is possible to define a similarity matrix between the amino acids and use it as in input to the program. Blosum62 similarity matrix is included in the program in a file titled “blosum62.txt”. If it is used the output RNAs code peptides with blosum similarity greater or equal than 'threshold'(defined in -t flag) to the given peptides.
+	-t
+	Define an integer as the minimum threshold for the input similarity matrix. It must be used together with -m flag and guarantees the output RNAs code peptides with similarity greater or equal than 'threshold' to the given peptides.
+	-gc
+	Define a single integer value or an interval for GC-content. The input can be a single value or a range of format gcl:gcu where gcl and gcu are inclusive lower bounds.
